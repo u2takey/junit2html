@@ -30,9 +30,5 @@ func Test6(t *testing.T) {
 }
 
 func Test7(t *testing.T) {
-	time.Sleep(2 * time.Second)
-}
-
-func Test8(t *testing.T) {
-	time.Sleep(2 * time.Second)
+	time.Sleep(1 * time.Second)
 }

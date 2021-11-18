@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="99999999">
+    <title>Test Report</title>
+    <style type="text/css">
+        body {
+    background-color: white;
+    padding-bottom: 20em;
+    margin: 0;
+    min-height: 15cm;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+    font-family: sans-serif;
+}
+
+h1 {
+    background-color: #007acc;
+    color: white;
+    padding: 3mm;
+    margin-top: 0;
+    margin-bottom: 1mm;
+}
+
+.footer {
+    font-style: italic;
+    font-size: small;
+    text-align: right;
+    padding: 1em;
+}
+
+.testsuite {
+    padding-bottom: 2em;
+    margin-left: 1em;
+}
+
+.proplist {
+    width: 100%;
+    margin-bottom: 2em;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+.proplist th {
+    background-color: silver;
+    width: 5em;
+    padding: 2px;
+    padding-right: 1em;
+    text-align: left;
+}
+
+.proplist td {
+    padding: 2px;
+}
+
+.index-table {
+    width: 90%;
+    margin-left: 1em;
+}
+
+.index-table td {
+    vertical-align: top;
+    width: 50%;
+}
+
+.failure-index {
+
+}
+
+.toc {
+    margin-bottom: 2em;
+    font-family: monospace;
+}
+
+.stdio, pre {
+    min-height: 1em;
+    background-color: #1e1e1e;
+    color: silver;
+    padding: 0.5em;
+}
+.tdpre {
+    background-color: #1e1e1e;
+}
+
+.test {
+    margin-left: 0.5cm;
+}
+
+.outcome {
+    border-left: 1em;
+    padding: 2px;
+}
+
+.li-failed {
+    color: lightcoral;
+}
+
+.outcome-failed {
+    border-left: 1em solid lightcoral;
+}
+
+.stats-table {
+}
+
+.stats-table td {
+    min-width: 4em;
+    text-align: right;
+}
+
+.stats-table .failed {
+    background-color: lightcoral;
+}
+
+.stats-table .passed {
+    background-color: lightgreen;
+}
+
+.matrix-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    width: available;
+    margin-left: 1em;
+}
+
+.matrix-table td {
+    vertical-align: center;
+}
+
+.matrix-table td:last-child {
+    width: 0;
+}
+
+.matrix-table tr:hover {
+    background-color: yellow;
+}
+
+.matrix-axis-name {
+    white-space: nowrap;
+    padding-right: 0.5em;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.matrix-axis-line {
+    border-left: 1px solid black;
+    width: 0.5em;
+}
+
+.matrix-classname {
+    text-align: left;
+    width: 100%;
+    border-top: 2px solid grey;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-casename {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    padding-left: 1em;
+    border-bottom: 1px solid silver;
+}
+
+.matrix-result {
+    display: block;
+    width: 1em;
+    text-align: center;
+    padding: 1mm;
+    margin: 0;
+}
+
+.matrix-result-combined {
+    white-space: nowrap;
+    padding-right: 0.2em;
+    text-align: right;
+}
+
+.matrix-result-failed {
+    background-color: lightcoral;
+}
+
+.matrix-result-passed {
+    background-color: lightgreen;
+}
+
+.matrix-result-skipped {
+    background-color: lightyellow;
+}
+
+.matrix-even {
+    background-color: lightgray;
+}
+    </style>
+</head>
+<body>
+<h1>
+    Test Report: ./examples/in.xml
+</h1>
+<a id="toc"></a>
+<table class="index-table">
+    <tr>
+        <td>
+            <ul class="toc">
+                
+                <li>E2e Suite
+                    <ul>
+                        
+                        <li><a href="#id_0_0">[Method1] Create/Update/Delete Method1 CreateSomeModel</a></li>
+                        
+                        <li><a href="#id_0_1">[Method1] Create/Update/Delete Method1 LoadSomeModelByIds</a></li>
+                        
+                        <li><a href="#id_0_2">[Method1] Create/Update/Delete Method1 LoadSomeModelByIndex</a></li>
+                        
+                        <li><a href="#id_0_3">[Method1] Create/Update/Delete Method1 PatchSomeModel</a></li>
+                        
+                        <li><a href="#id_0_4">[Method1] Create/Update/Delete Method1 LoadSomeModelByIds After Patch</a></li>
+                        
+                        <li><a href="#id_0_5">[Method1] Create/Update/Delete Method1 PatchSomeModel With Method</a></li>
+                        
+                        <li><a href="#id_0_6">[Method1] Create/Update/Delete Method1 LoadSomeModelByIds After Method</a></li>
+                        
+                        <li><a href="#id_0_7">[Method1] Create/Update/Delete Method1 HardDeleteModels_Method1</a></li>
+                        
+                        <li><a href="#id_0_8">[Method1] [Batch] Batch Method1 Batch Create Method1 With Method</a></li>
+                        
+                        <li><a href="#id_0_9">[Method1] [Batch] Batch Method1 Batch Create Method1 V2</a></li>
+                        
+                        <li><a href="#id_0_10">[Method1] [Batch] Batch Method1 Batch Update Method1</a></li>
+                        
+                        <li><a href="#id_0_11">[MethodV2] Create/Update/Delete Model2 MethodV2-BatchCreate</a></li>
+                        
+                        <li><a href="#id_0_12">[MethodV2] Create/Update/Delete Model2 ClearMethodResult1</a></li>
+                        
+                        <li><a href="#id_0_13">[MethodV2] Create/Update/Delete Model2 MethodV2-BatchCreateSKsAndModel2s</a></li>
+                        
+                        <li><a href="#id_0_14">[MethodV2] Create/Update/Delete Model2 FetchMethodResultForModel2</a></li>
+                        
+                        <li><a href="#id_0_15">[MethodV2] Create/Update/Delete Model2 MethodV2-BatchPatchModel2</a></li>
+                        
+                        <li><a href="#id_0_16">[MethodV2] Create/Update/Delete Model2 FetchMethodResultAfterPatchForModel2</a></li>
+                        
+                        <li><a href="#id_0_17">[MethodV2] Create/Update/Delete Model2 MethodV2-BatchDelete</a></li>
+                        
+                        <li><a href="#id_0_18">[MethodV2] Create/Update/Delete Model2 MethodV2-FetchMethodResultAfterDeleteForModel2</a></li>
+                        
+                        <li><a href="#id_0_19">[MethodV2] Create/Update/Delete Model2 ClearMethodResult2</a></li>
+                        
+                        <li><a href="#id_0_20">[MethodV2] MethodBadCase BadCase1_LargeMethod</a></li>
+                        
+                        <li><a href="#id_0_21">[MethodV2] MethodBadCase BadCase2_LargeBatchInMethod</a></li>
+                        
+                        <li><a href="#id_0_22">[MethodV2] MethodBadCase BadCase3_UnsupportedOpt</a></li>
+                        
+                        <li><a href="#id_0_23">[MethodV2] MethodBadCase BadCase3_MixedModel2vId</a></li>
+                        
+                        <li><a href="#id_0_24">[MethodV2] PipeVersionCheck CreateModel2ForVersionCheck</a></li>
+                        
+                        <li><a href="#id_0_25">[MethodV2] PipeVersionCheck GetModel2ForVersionCheck</a></li>
+                        
+                        <li><a href="#id_0_26">[MethodV2] PipeVersionCheck PatchModel2AndCheckVersionChange1</a></li>
+                        
+                        <li><a href="#id_0_27">[MethodV2] PipeVersionCheck GetModel2ForVersionCheck</a></li>
+                        
+                        <li><a href="#id_0_28">[MethodV2] PipeVersionCheck PatchModel2AndCheckVersionNoChange</a></li>
+                        
+                        <li><a href="#id_0_29">[MethodV2] PipeVersionCheck GetModel2ForVersionCheck</a></li>
+                        
+                        <li><a href="#id_0_30">[MethodV2] PipeVersionCheck PatchModel2AndCheckVersionChange2</a></li>
+                        
+                        <li><a href="#id_0_31">[MethodV2] PipeVersionCheck GetModel2ForVersionCheck</a></li>
+                        
+                        <li><a href="#id_0_32">[MethodV2] PipeVersionCheck PatchModel2AndCheckVersionChange3</a></li>
+                        
+                        <li><a href="#id_0_33">[MethodV2] PipeVersionCheck ClearMethodResult2</a></li>
+                        
+                        <li><a href="#id_0_34">[Model2] [CUD] Create/Update/Delete Model2 CreateModel2</a></li>
+                        
+                        <li><a href="#id_0_35">[Model2] [CUD] Create/Update/Delete Model2 LoadModel2</a></li>
+                        
+                        <li><a href="#id_0_36">[Model2] [CUD] Create/Update/Delete Model2 DeleteModel2</a></li>
+                        
+                        <li><a href="#id_0_37">[Model2] [CUD] Create/Update/Delete Model2 LoadModel2</a></li>
+                        
+                        <li><a href="#id_0_38">[Model2] [CUD] Create/Update/Delete Model2 HardDeleteModel2</a></li>
+                        
+                        <li><a href="#id_0_39">[Model2] [CUD] Create/Update/Delete Model2 LoadModel2</a></li>
+                        
+                    </ul>
+                </li>
+                
+            </ul>
+        </td>
+        <td class="failure-index">
+            <ul class="toc">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_11">FAILED: E2e Suite - [MethodV2] Create/Update/Delete Model2 MethodV2-BatchCreate</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_12">FAILED: E2e Suite - [MethodV2] Create/Update/Delete Model2 ClearMethodResult1</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_13">FAILED: E2e Suite - [MethodV2] Create/Update/Delete Model2 MethodV2-BatchCreateSKsAndModel2s</a></li>
+                
+                
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_15">FAILED: E2e Suite - [MethodV2] Create/Update/Delete Model2 MethodV2-BatchPatchModel2</a></li>
+                
+                
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_17">FAILED: E2e Suite - [MethodV2] Create/Update/Delete Model2 MethodV2-BatchDelete</a></li>
+                
+                
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_19">FAILED: E2e Suite - [MethodV2] Create/Update/Delete Model2 ClearMethodResult2</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_20">FAILED: E2e Suite - [MethodV2] MethodBadCase BadCase1_LargeMethod</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_21">FAILED: E2e Suite - [MethodV2] MethodBadCase BadCase2_LargeBatchInMethod</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_22">FAILED: E2e Suite - [MethodV2] MethodBadCase BadCase3_UnsupportedOpt</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_23">FAILED: E2e Suite - [MethodV2] MethodBadCase BadCase3_MixedModel2vId</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_24">FAILED: E2e Suite - [MethodV2] PipeVersionCheck CreateModel2ForVersionCheck</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_25">FAILED: E2e Suite - [MethodV2] PipeVersionCheck GetModel2ForVersionCheck</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_26">FAILED: E2e Suite - [MethodV2] PipeVersionCheck PatchModel2AndCheckVersionChange1</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_27">FAILED: E2e Suite - [MethodV2] PipeVersionCheck GetModel2ForVersionCheck</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_28">FAILED: E2e Suite - [MethodV2] PipeVersionCheck PatchModel2AndCheckVersionNoChange</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_29">FAILED: E2e Suite - [MethodV2] PipeVersionCheck GetModel2ForVersionCheck</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_30">FAILED: E2e Suite - [MethodV2] PipeVersionCheck PatchModel2AndCheckVersionChange2</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_31">FAILED: E2e Suite - [MethodV2] PipeVersionCheck GetModel2ForVersionCheck</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_32">FAILED: E2e Suite - [MethodV2] PipeVersionCheck PatchModel2AndCheckVersionChange3</a></li>
+                
+                
+                
+                <li class="li-failed"><a href="#id_0_33">FAILED: E2e Suite - [MethodV2] PipeVersionCheck ClearMethodResult2</a></li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </ul>
+        </td>
+    </tr>
+</table>
+
+
+<div class="testsuite">
+    <h2>Test Suite: E2e Suite</h2>
+    
+    <h3>Results</h3>
+    <table class="proplist">
+        <tr>
+            <th>Duration</th><td>4.979 sec</td>
+        </tr>
+        <tr>
+            <th>Tests</th><td>40</td>
+        </tr>
+        <tr>
+            <th>Failures</th><td>20</td>
+        </tr>
+    </table>
+
+    <div class="testclasses">
+        <h3>Tests</h3>
+        <div class="testclass">
+            <h4>E2e Suite</h4>
+            <div class="testcases">
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_0"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Method1] Create/Update/Delete Method1 CreateSomeModel</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.168239736 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_1"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Method1] Create/Update/Delete Method1 LoadSomeModelByIds</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.070272895 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_2"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Method1] Create/Update/Delete Method1 LoadSomeModelByIndex</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.074711077 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_3"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Method1] Create/Update/Delete Method1 PatchSomeModel</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.176831277 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_4"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Method1] Create/Update/Delete Method1 LoadSomeModelByIds After Patch</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.073911134 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_5"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Method1] Create/Update/Delete Method1 PatchSomeModel With Method</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.164013765 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_6"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Method1] Create/Update/Delete Method1 LoadSomeModelByIds After Method</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.07781111 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_7"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Method1] Create/Update/Delete Method1 HardDeleteModels_Method1</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.215426735 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_8"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Method1] [Batch] Batch Method1 Batch Create Method1 With Method</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.260863418 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_9"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Method1] [Batch] Batch Method1 Batch Create Method1 V2</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.218672904 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_10"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Method1] [Batch] Batch Method1 Batch Update Method1</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.214312101 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_11"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] Create/Update/Delete Model2 MethodV2-BatchCreate</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.127034714 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Panic
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Panic /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:31
+Test Panicked
+/Users/usera/.goenv/versions/1.16/src/runtime/panic.go:212
+
+Panic: runtime error: invalid memory address or nil pointer dereference
+
+Full stack:
+github.com/a/b/test/e2e.glob..func2.3.1()
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:48 &#43;0x2fb
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).runSync(0xc000ca47e0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:113 &#43;0xa3
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).run(0xc000ca47e0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:64 &#43;0x15c
+github.com/onsi/ginkgo/internal/leafnodes.(*ItNode).Run(0xc00007ef20, 0x6030b20, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/it_node.go:26 &#43;0x87
+github.com/onsi/ginkgo/internal/spec.(*Spec).runSample(0xc000218b40, 0x0, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:215 &#43;0x72f
+github.com/onsi/ginkgo/internal/spec.(*Spec).Run(0xc000218b40, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:138 &#43;0xf2
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpec(0xc000170000, 0xc000218b40, 0x0)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:200 &#43;0x111
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpecs(0xc000170000, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:170 &#43;0x147
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).Run(0xc000170000, 0xc000c0aa18)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:66 &#43;0x117
+github.com/onsi/ginkgo/internal/suite.(*Suite).Run(0xc0003e6f50, 0xb78c6e8, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4cc0, 0x2, 0x2, 0x6093098, 0xc00009ab40, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/suite/suite.go:79 &#43;0x546
+github.com/onsi/ginkgo.RunSpecsWithCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4ca0, 0x2, 0x2, 0x2)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:219 &#43;0x218
+github.com/onsi/ginkgo.RunSpecsWithDefaultAndCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc000b00880, 0x1, 0x1, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:207 &#43;0xad
+github.com/a/b/test/e2e.TestE2e(0xc000483800)
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_suite_test.go:57 &#43;0x399
+testing.tRunner(0xc000483800, 0x5e09130)
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1194 &#43;0xef
+created by testing.(*T).Run
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1239 &#43;0x2b3}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_12"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] Create/Update/Delete Model2 ClearMethodResult1</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.23336206 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Failure
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Failure /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:56
+Expected
+    &lt;int&gt;: 0
+to equal
+    &lt;int&gt;: 3
+/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:65}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_13"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] Create/Update/Delete Model2 MethodV2-BatchCreateSKsAndModel2s</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.143760379 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Panic
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Panic /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:68
+Test Panicked
+/Users/usera/.goenv/versions/1.16/src/runtime/panic.go:212
+
+Panic: runtime error: invalid memory address or nil pointer dereference
+
+Full stack:
+github.com/a/b/test/e2e.glob..func2.3.3()
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:120 &#43;0x6f7
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).runSync(0xc000ca4960, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:113 &#43;0xa3
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).run(0xc000ca4960, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:64 &#43;0x15c
+github.com/onsi/ginkgo/internal/leafnodes.(*ItNode).Run(0xc00007f160, 0x6030b20, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/it_node.go:26 &#43;0x87
+github.com/onsi/ginkgo/internal/spec.(*Spec).runSample(0xc000218d20, 0x0, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:215 &#43;0x72f
+github.com/onsi/ginkgo/internal/spec.(*Spec).Run(0xc000218d20, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:138 &#43;0xf2
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpec(0xc000170000, 0xc000218d20, 0x0)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:200 &#43;0x111
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpecs(0xc000170000, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:170 &#43;0x147
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).Run(0xc000170000, 0xc000c0aa18)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:66 &#43;0x117
+github.com/onsi/ginkgo/internal/suite.(*Suite).Run(0xc0003e6f50, 0xb78c6e8, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4cc0, 0x2, 0x2, 0x6093098, 0xc00009ab40, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/suite/suite.go:79 &#43;0x546
+github.com/onsi/ginkgo.RunSpecsWithCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4ca0, 0x2, 0x2, 0x2)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:219 &#43;0x218
+github.com/onsi/ginkgo.RunSpecsWithDefaultAndCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc000b00880, 0x1, 0x1, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:207 &#43;0xad
+github.com/a/b/test/e2e.TestE2e(0xc000483800)
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_suite_test.go:57 &#43;0x399
+testing.tRunner(0xc000483800, 0x5e09130)
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1194 &#43;0xef
+created by testing.(*T).Run
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1239 &#43;0x2b3}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_14"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] Create/Update/Delete Model2 FetchMethodResultForModel2</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.08154733 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_15"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] Create/Update/Delete Model2 MethodV2-BatchPatchModel2</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.125879527 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Panic
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Panic /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:151
+Test Panicked
+/Users/usera/.goenv/versions/1.16/src/runtime/panic.go:212
+
+Panic: runtime error: invalid memory address or nil pointer dereference
+
+Full stack:
+github.com/a/b/test/e2e.glob..func2.3.5()
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:180 &#43;0x619
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).runSync(0xc000ca4c60, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:113 &#43;0xa3
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).run(0xc000ca4c60, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:64 &#43;0x15c
+github.com/onsi/ginkgo/internal/leafnodes.(*ItNode).Run(0xc00007f2c0, 0x6030b20, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/it_node.go:26 &#43;0x87
+github.com/onsi/ginkgo/internal/spec.(*Spec).runSample(0xc000218ff0, 0x0, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:215 &#43;0x72f
+github.com/onsi/ginkgo/internal/spec.(*Spec).Run(0xc000218ff0, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:138 &#43;0xf2
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpec(0xc000170000, 0xc000218ff0, 0x0)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:200 &#43;0x111
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpecs(0xc000170000, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:170 &#43;0x147
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).Run(0xc000170000, 0xc000c0aa18)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:66 &#43;0x117
+github.com/onsi/ginkgo/internal/suite.(*Suite).Run(0xc0003e6f50, 0xb78c6e8, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4cc0, 0x2, 0x2, 0x6093098, 0xc00009ab40, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/suite/suite.go:79 &#43;0x546
+github.com/onsi/ginkgo.RunSpecsWithCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4ca0, 0x2, 0x2, 0x2)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:219 &#43;0x218
+github.com/onsi/ginkgo.RunSpecsWithDefaultAndCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc000b00880, 0x1, 0x1, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:207 &#43;0xad
+github.com/a/b/test/e2e.TestE2e(0xc000483800)
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_suite_test.go:57 &#43;0x399
+testing.tRunner(0xc000483800, 0x5e09130)
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1194 &#43;0xef
+created by testing.(*T).Run
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1239 &#43;0x2b3}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_16"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] Create/Update/Delete Model2 FetchMethodResultAfterPatchForModel2</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.082801962 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_17"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] Create/Update/Delete Model2 MethodV2-BatchDelete</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.000493836 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Panic
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Panic /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:198
+Test Panicked
+/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:211
+
+Panic: len(modifiedModel2s) should &gt; 10
+
+Full stack:
+github.com/a/b/test/e2e.glob..func2.3.7()
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:211 &#43;0x9ee
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).runSync(0xc000ca4ea0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:113 &#43;0xa3
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).run(0xc000ca4ea0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:64 &#43;0x15c
+github.com/onsi/ginkgo/internal/leafnodes.(*ItNode).Run(0xc00007f4c0, 0x6030b20, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/it_node.go:26 &#43;0x87
+github.com/onsi/ginkgo/internal/spec.(*Spec).runSample(0xc0002191d0, 0x0, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:215 &#43;0x72f
+github.com/onsi/ginkgo/internal/spec.(*Spec).Run(0xc0002191d0, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:138 &#43;0xf2
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpec(0xc000170000, 0xc0002191d0, 0x0)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:200 &#43;0x111
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpecs(0xc000170000, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:170 &#43;0x147
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).Run(0xc000170000, 0xc000c0aa18)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:66 &#43;0x117
+github.com/onsi/ginkgo/internal/suite.(*Suite).Run(0xc0003e6f50, 0xb78c6e8, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4cc0, 0x2, 0x2, 0x6093098, 0xc00009ab40, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/suite/suite.go:79 &#43;0x546
+github.com/onsi/ginkgo.RunSpecsWithCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4ca0, 0x2, 0x2, 0x2)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:219 &#43;0x218
+github.com/onsi/ginkgo.RunSpecsWithDefaultAndCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc000b00880, 0x1, 0x1, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:207 &#43;0xad
+github.com/a/b/test/e2e.TestE2e(0xc000483800)
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_suite_test.go:57 &#43;0x399
+testing.tRunner(0xc000483800, 0x5e09130)
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1194 &#43;0xef
+created by testing.(*T).Run
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1239 &#43;0x2b3}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_18"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] Create/Update/Delete Model2 MethodV2-FetchMethodResultAfterDeleteForModel2</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.073841727 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_19"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] Create/Update/Delete Model2 ClearMethodResult2</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.247413788 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Failure
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Failure /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:249
+Expected
+    &lt;int&gt;: 0
+to equal
+    &lt;int&gt;: 6
+/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:261}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_20"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] MethodBadCase BadCase1_LargeMethod</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.142523294 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Failure
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Failure /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:267
+Expected
+    &lt;nil&gt;: nil
+not to be nil
+/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:281}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_21"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] MethodBadCase BadCase2_LargeBatchInMethod</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.165756986 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Failure
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Failure /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:284
+Expected
+    &lt;nil&gt;: nil
+not to be nil
+/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:300}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_22"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] MethodBadCase BadCase3_UnsupportedOpt</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.125207117 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Failure
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Failure /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:303
+Expected
+    &lt;nil&gt;: nil
+not to be nil
+/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:316}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_23"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] MethodBadCase BadCase3_MixedModel2vId</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.205417869 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Failure
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Failure /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:319
+Expected
+    &lt;nil&gt;: nil
+not to be nil
+/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:336}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_24"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] PipeVersionCheck CreateModel2ForVersionCheck</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.146912607 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Panic
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Panic /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:344
+Test Panicked
+/Users/usera/.goenv/versions/1.16/src/runtime/panic.go:212
+
+Panic: runtime error: invalid memory address or nil pointer dereference
+
+Full stack:
+github.com/a/b/test/e2e.glob..func2.5.1()
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:358 &#43;0x2bb
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).runSync(0xc000ca5860, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:113 &#43;0xa3
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).run(0xc000ca5860, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:64 &#43;0x15c
+github.com/onsi/ginkgo/internal/leafnodes.(*ItNode).Run(0xc00007fc40, 0x6030b20, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/it_node.go:26 &#43;0x87
+github.com/onsi/ginkgo/internal/spec.(*Spec).runSample(0xc000219860, 0x0, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:215 &#43;0x72f
+github.com/onsi/ginkgo/internal/spec.(*Spec).Run(0xc000219860, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:138 &#43;0xf2
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpec(0xc000170000, 0xc000219860, 0x0)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:200 &#43;0x111
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpecs(0xc000170000, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:170 &#43;0x147
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).Run(0xc000170000, 0xc000c0aa18)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:66 &#43;0x117
+github.com/onsi/ginkgo/internal/suite.(*Suite).Run(0xc0003e6f50, 0xb78c6e8, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4cc0, 0x2, 0x2, 0x6093098, 0xc00009ab40, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/suite/suite.go:79 &#43;0x546
+github.com/onsi/ginkgo.RunSpecsWithCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4ca0, 0x2, 0x2, 0x2)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:219 &#43;0x218
+github.com/onsi/ginkgo.RunSpecsWithDefaultAndCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc000b00880, 0x1, 0x1, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:207 &#43;0xad
+github.com/a/b/test/e2e.TestE2e(0xc000483800)
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_suite_test.go:57 &#43;0x399
+testing.tRunner(0xc000483800, 0x5e09130)
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1194 &#43;0xef
+created by testing.(*T).Run
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1239 &#43;0x2b3}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_25"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] PipeVersionCheck GetModel2ForVersionCheck</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.076249512 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Failure
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Failure /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:364
+Expected
+    &lt;int&gt;: 0
+to equal
+    &lt;int&gt;: 1
+/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:371}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_26"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] PipeVersionCheck PatchModel2AndCheckVersionChange1</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.000341569 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Panic
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Panic /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:376
+Test Panicked
+/Users/usera/.goenv/versions/1.16/src/runtime/panic.go:212
+
+Panic: runtime error: invalid memory address or nil pointer dereference
+
+Full stack:
+github.com/a/b/test/e2e.glob..func2.5.3()
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:380 &#43;0x119
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).runSync(0xc000ca59e0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:113 &#43;0xa3
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).run(0xc000ca59e0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:64 &#43;0x15c
+github.com/onsi/ginkgo/internal/leafnodes.(*ItNode).Run(0xc00007fe80, 0x6030b20, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/it_node.go:26 &#43;0x87
+github.com/onsi/ginkgo/internal/spec.(*Spec).runSample(0xc000219a40, 0x0, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:215 &#43;0x72f
+github.com/onsi/ginkgo/internal/spec.(*Spec).Run(0xc000219a40, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:138 &#43;0xf2
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpec(0xc000170000, 0xc000219a40, 0x0)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:200 &#43;0x111
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpecs(0xc000170000, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:170 &#43;0x147
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).Run(0xc000170000, 0xc000c0aa18)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:66 &#43;0x117
+github.com/onsi/ginkgo/internal/suite.(*Suite).Run(0xc0003e6f50, 0xb78c6e8, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4cc0, 0x2, 0x2, 0x6093098, 0xc00009ab40, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/suite/suite.go:79 &#43;0x546
+github.com/onsi/ginkgo.RunSpecsWithCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4ca0, 0x2, 0x2, 0x2)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:219 &#43;0x218
+github.com/onsi/ginkgo.RunSpecsWithDefaultAndCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc000b00880, 0x1, 0x1, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:207 &#43;0xad
+github.com/a/b/test/e2e.TestE2e(0xc000483800)
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_suite_test.go:57 &#43;0x399
+testing.tRunner(0xc000483800, 0x5e09130)
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1194 &#43;0xef
+created by testing.(*T).Run
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1239 &#43;0x2b3}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_27"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] PipeVersionCheck GetModel2ForVersionCheck</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.071424519 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Failure
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Failure /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:400
+Expected
+    &lt;int&gt;: 0
+to equal
+    &lt;int&gt;: 1
+/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:407}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_28"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] PipeVersionCheck PatchModel2AndCheckVersionNoChange</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.000202155 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Panic
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Panic /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:412
+Test Panicked
+/Users/usera/.goenv/versions/1.16/src/runtime/panic.go:212
+
+Panic: runtime error: invalid memory address or nil pointer dereference
+
+Full stack:
+github.com/a/b/test/e2e.glob..func2.5.5()
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:416 &#43;0xd6
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).runSync(0xc000ca5bc0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:113 &#43;0xa3
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).run(0xc000ca5bc0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:64 &#43;0x15c
+github.com/onsi/ginkgo/internal/leafnodes.(*ItNode).Run(0xc0009920c0, 0x6030b20, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/it_node.go:26 &#43;0x87
+github.com/onsi/ginkgo/internal/spec.(*Spec).runSample(0xc000219c20, 0x0, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:215 &#43;0x72f
+github.com/onsi/ginkgo/internal/spec.(*Spec).Run(0xc000219c20, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:138 &#43;0xf2
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpec(0xc000170000, 0xc000219c20, 0x0)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:200 &#43;0x111
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpecs(0xc000170000, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:170 &#43;0x147
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).Run(0xc000170000, 0xc000c0aa18)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:66 &#43;0x117
+github.com/onsi/ginkgo/internal/suite.(*Suite).Run(0xc0003e6f50, 0xb78c6e8, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4cc0, 0x2, 0x2, 0x6093098, 0xc00009ab40, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/suite/suite.go:79 &#43;0x546
+github.com/onsi/ginkgo.RunSpecsWithCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4ca0, 0x2, 0x2, 0x2)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:219 &#43;0x218
+github.com/onsi/ginkgo.RunSpecsWithDefaultAndCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc000b00880, 0x1, 0x1, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:207 &#43;0xad
+github.com/a/b/test/e2e.TestE2e(0xc000483800)
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_suite_test.go:57 &#43;0x399
+testing.tRunner(0xc000483800, 0x5e09130)
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1194 &#43;0xef
+created by testing.(*T).Run
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1239 &#43;0x2b3}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_29"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] PipeVersionCheck GetModel2ForVersionCheck</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.083630629 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Failure
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Failure /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:435
+Expected
+    &lt;int&gt;: 0
+to equal
+    &lt;int&gt;: 1
+/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:442}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_30"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] PipeVersionCheck PatchModel2AndCheckVersionChange2</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.000201096 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Panic
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Panic /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:447
+Test Panicked
+/Users/usera/.goenv/versions/1.16/src/runtime/panic.go:212
+
+Panic: runtime error: invalid memory address or nil pointer dereference
+
+Full stack:
+github.com/a/b/test/e2e.glob..func2.5.7()
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:451 &#43;0x104
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).runSync(0xc000ca5d40, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:113 &#43;0xa3
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).run(0xc000ca5d40, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:64 &#43;0x15c
+github.com/onsi/ginkgo/internal/leafnodes.(*ItNode).Run(0xc0009922e0, 0x6030b20, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/it_node.go:26 &#43;0x87
+github.com/onsi/ginkgo/internal/spec.(*Spec).runSample(0xc000219e00, 0x0, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:215 &#43;0x72f
+github.com/onsi/ginkgo/internal/spec.(*Spec).Run(0xc000219e00, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:138 &#43;0xf2
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpec(0xc000170000, 0xc000219e00, 0x0)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:200 &#43;0x111
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpecs(0xc000170000, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:170 &#43;0x147
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).Run(0xc000170000, 0xc000c0aa18)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:66 &#43;0x117
+github.com/onsi/ginkgo/internal/suite.(*Suite).Run(0xc0003e6f50, 0xb78c6e8, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4cc0, 0x2, 0x2, 0x6093098, 0xc00009ab40, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/suite/suite.go:79 &#43;0x546
+github.com/onsi/ginkgo.RunSpecsWithCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4ca0, 0x2, 0x2, 0x2)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:219 &#43;0x218
+github.com/onsi/ginkgo.RunSpecsWithDefaultAndCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc000b00880, 0x1, 0x1, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:207 &#43;0xad
+github.com/a/b/test/e2e.TestE2e(0xc000483800)
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_suite_test.go:57 &#43;0x399
+testing.tRunner(0xc000483800, 0x5e09130)
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1194 &#43;0xef
+created by testing.(*T).Run
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1239 &#43;0x2b3}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_31"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] PipeVersionCheck GetModel2ForVersionCheck</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.072298543 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Failure
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Failure /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:470
+Expected
+    &lt;int&gt;: 0
+to equal
+    &lt;int&gt;: 1
+/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:477}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_32"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] PipeVersionCheck PatchModel2AndCheckVersionChange3</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.00025648 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Panic
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Panic /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:482
+Test Panicked
+/Users/usera/.goenv/versions/1.16/src/runtime/panic.go:212
+
+Panic: runtime error: invalid memory address or nil pointer dereference
+
+Full stack:
+github.com/a/b/test/e2e.glob..func2.5.9()
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:486 &#43;0x124
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).runSync(0xc000ca5ec0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:113 &#43;0xa3
+github.com/onsi/ginkgo/internal/leafnodes.(*runner).run(0xc000ca5ec0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/runner.go:64 &#43;0x15c
+github.com/onsi/ginkgo/internal/leafnodes.(*ItNode).Run(0xc000992560, 0x6030b20, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/leafnodes/it_node.go:26 &#43;0x87
+github.com/onsi/ginkgo/internal/spec.(*Spec).runSample(0xc000cb2000, 0x0, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:215 &#43;0x72f
+github.com/onsi/ginkgo/internal/spec.(*Spec).Run(0xc000cb2000, 0x6030b20, 0xc00009ab40)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/spec/spec.go:138 &#43;0xf2
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpec(0xc000170000, 0xc000cb2000, 0x20)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:200 &#43;0x111
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).runSpecs(0xc000170000, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:170 &#43;0x147
+github.com/onsi/ginkgo/internal/specrunner.(*SpecRunner).Run(0xc000170000, 0xc000c0aa18)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/specrunner/spec_runner.go:66 &#43;0x117
+github.com/onsi/ginkgo/internal/suite.(*Suite).Run(0xc0003e6f50, 0xb78c6e8, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4cc0, 0x2, 0x2, 0x6093098, 0xc00009ab40, ...)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/internal/suite/suite.go:79 &#43;0x546
+github.com/onsi/ginkgo.RunSpecsWithCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc0008d4ca0, 0x2, 0x2, 0x2)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:219 &#43;0x218
+github.com/onsi/ginkgo.RunSpecsWithDefaultAndCustomReporters(0x60320c0, 0xc000483800, 0x5da53f6, 0x9, 0xc000b00880, 0x1, 0x1, 0x1)
+	/Users/usera/Work/go-librarys/pkg/mod/github.com/onsi/ginkgo@v1.14.0/ginkgo_dsl.go:207 &#43;0xad
+github.com/a/b/test/e2e.TestE2e(0xc000483800)
+	/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_suite_test.go:57 &#43;0x399
+testing.tRunner(0xc000483800, 0x5e09130)
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1194 &#43;0xef
+created by testing.(*T).Run
+	/Users/usera/.goenv/versions/1.16/src/testing/testing.go:1239 &#43;0x2b3}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-failed">
+                    <a id="id_0_33"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[MethodV2] PipeVersionCheck ClearMethodResult2</b></td></tr>
+                        <tr><th>Outcome:</th><td>FAILED</td></tr>
+                        <tr><th>Duration:</th><td>0.231031894 sec</td></tr>
+                        
+                        <tr><th>Failed</th><td>
+                            
+                            Failure
+                            
+                            
+                        </td></tr>
+                        
+                        
+                    </table>
+
+                    
+                    <pre>{ Failure /Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:505
+Expected
+    &lt;int&gt;: 0
+to equal
+    &lt;int&gt;: 1
+/Users/usera/Work/go-librarys/src/github.com/a/b/test/e2e/e2e_test_pipelinev2.go:517}</pre>
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_34"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Model2] [CUD] Create/Update/Delete Model2 CreateModel2</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.191479013 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_35"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Model2] [CUD] Create/Update/Delete Model2 LoadModel2</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.071895373 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_36"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Model2] [CUD] Create/Update/Delete Model2 DeleteModel2</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.191900199 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_37"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Model2] [CUD] Create/Update/Delete Model2 LoadModel2</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.077043549 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_38"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Model2] [CUD] Create/Update/Delete Model2 HardDeleteModel2</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.214534553 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+                <div class="test outcome outcome-success">
+                    <a id="id_0_39"></a>
+                    <table class="proplist">
+                        <tr><th>Test case:</th><td><b>[Model2] [CUD] Create/Update/Delete Model2 LoadModel2</b></td></tr>
+                        <tr><th>Outcome:</th><td>SUCCESS</td></tr>
+                        <tr><th>Duration:</th><td>0.072075656 sec</td></tr>
+                        
+                        
+                    </table>
+
+                    
+
+                    
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<p class="footer">
+    Generated by junit2html
+</p>
+</body>
+</html>

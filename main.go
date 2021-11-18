@@ -54,10 +54,11 @@ func main() {
 		}()
 
 		var indexHtml []byte
+		title := "Test Ongoing"
 		for range time.Tick(time.Second) {
-			title := "Test Ongoing"
+			title += "."
 			replace1 := `99999999`
-			replace2 := `2.9999999`
+			replace2 := `1.1111111`
 			if atomic.LoadInt32(&done) > 0 {
 				title = "Test Done"
 				tmp := replace2
